@@ -28,9 +28,21 @@ function aptEverything() {
 }
 
 function lazygit() {
+	[ -d ".git" ] || git rev-parse --git-dir > /dev/null 2>&1
+	if [ $? -ne 0  ]; then
+		echo "Not in git repository!"
+		return 1
+	fi
+
+	commitMessage="$1"
+	if [[ -z "${commitMessage}" ]]; then
+		echo "No commit message supplied!"
+		return 1
+	fi
+
 	# Commit with message
 	git add .
-	git commit -a -m "$1"
+	git commit -a -m "${commitMessage}"
 	# Add tag if present
 	[[ ! -z "$2" ]] && git tag "$2"
 	# Push
