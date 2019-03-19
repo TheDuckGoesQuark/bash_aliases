@@ -2,6 +2,7 @@ alias uni='cd ~/Documents/Uni; ls -1;';
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
 alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
+alias matlab='matlab -nosplash -nodesktop'
 
 function metasploitswitch() {
 	if [ -z "$1" ]
