@@ -2,7 +2,6 @@ alias uni='cd ~/Documents/Uni; ls -1;';
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
 alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
-alias matlab='matlab -nosplash -nodesktop'
 
 function metasploitswitch() {
 	if [ -z "$1" ]
@@ -11,6 +10,16 @@ function metasploitswitch() {
 		return 1
 	else
 		sudo bash /opt/metasploit/ctlscript.sh "$1"
+	fi
+}
+
+function mysqlswitch() {
+	if [ -z "$1" ]
+	then
+		echo "Options are either 'start', 'stop', or 'restart'"
+		return 1
+	else
+		service mysql "$1"
 	fi
 }
 
