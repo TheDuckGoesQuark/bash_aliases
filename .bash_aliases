@@ -2,6 +2,7 @@ alias uni='cd ~/Documents/Uni; ls -1;';
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
 alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
+alias latexmk='latexmk -pdf -pvc'
 
 function metasploitswitch() {
 	if [ -z "$1" ]
@@ -26,9 +27,9 @@ function mysqlswitch() {
 function files() {
 	if [ -z "$1" ]
 	then
-		xdg-open .
+		xdg-open . &
 	else
-		xdg-open $1
+		xdg-open $1 &
 	fi
 }
 
@@ -58,4 +59,5 @@ function lazygit() {
 	# Push
 	git push
 }
+
 
