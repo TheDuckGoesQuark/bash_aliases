@@ -1,4 +1,3 @@
-alias uni='cd ~/Documents/Uni; ls -1;';
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
 alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
@@ -27,9 +26,9 @@ function mysqlswitch() {
 function files() {
 	if [ -z "$1" ]
 	then
-		xdg-open . &
+		xdg-open . > /dev/null 2>&1 &
 	else
-		xdg-open $1 &
+		xdg-open $1 > /dev/null 2>&1 &
 	fi
 }
 
