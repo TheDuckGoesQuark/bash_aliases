@@ -1,7 +1,9 @@
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
 alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
-alias latexmk='latexmk -pdf -pvc'
+alias latexmk='latexmk -pdf -pvc';
+alias copy_template='cp -r ~/Templates/report .';
+alias stfuintellij='ibus-daemon -rd';
 
 function metasploitswitch() {
 	if [ -z "$1" ]
@@ -58,5 +60,4 @@ function lazygit() {
 	# Push
 	git push
 }
-
 
