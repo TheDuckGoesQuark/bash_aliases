@@ -61,3 +61,7 @@ function lazygit() {
 	git push
 }
 
+function printTarContents() {
+	tar -tf $1
+}
+
