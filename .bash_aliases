@@ -4,6 +4,7 @@ alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
 alias latexmk='latexmk -pdf -pvc';
 alias copy_template='cp -r ~/Templates/report .';
 alias stfuintellij='ibus-daemon -rd';
+alias uni='cd ~/Documents/Uni/'
 
 function metasploitswitch() {
 	if [ -z "$1" ]
