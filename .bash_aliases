@@ -6,6 +6,13 @@ alias copy_template='cp -r ~/Templates/report .';
 alias stfuintellij='ibus-daemon -rd';
 alias uni='cd ~/Documents/Uni/'
 
+function phdl() {
+	url=$1
+	flags="${@:2}"
+	youtube-dl $url --cookies ~/Downloads/cookies.txt $flags
+}
+
+
 function metasploitswitch() {
 	if [ -z "$1" ]
 	then
