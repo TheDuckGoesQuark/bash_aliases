@@ -1,2 +1,2 @@
-$pdf_update_method = 2;
-$pdf_previewer = 'mupdf';
+$pdf_update_method = 0;
+$pdf_previewer = 'zathura';

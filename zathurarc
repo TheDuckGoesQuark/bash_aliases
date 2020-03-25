@@ -1,0 +1,3 @@
+# ln -s $pwd/zathurarc ~/.config/zathura/zathurarc 
+map <C-i> recolor
+set recolor true
