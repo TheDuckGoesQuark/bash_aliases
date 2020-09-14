@@ -1,17 +1,37 @@
 alias matlab='matlab -nodesktop -nosplash';
 alias python='python3';
-alias sshuni='ssh jm354@jm354.host.cs.st-andrews.ac.uk';
 alias latexmk='latexmk -pdf -pvc';
 alias copy_template='cp -r ~/Templates/report .';
 alias stfuintellij='ibus-daemon -rd';
-alias uni='cd ~/Documents/Uni/'
 
-function phdl() {
+MACHINE_TYPE_MAC='MacOS';
+MACHINE_TYPE_LINUX='Linux';
+MACHINE_TYPE_OTHER='Other';
+
+function getMachineType() {
+    case "$(uname -s)" in
+       Darwin)
+         echo ${MACHINE_TYPE_MAC}
+         ;;
+
+       Linux)
+           echo ${MACHINE_TYPE_LINUX}
+         ;;
+
+       *)
+         echo ${MACHINE_TYPE_OTHER}
+         return -1;
+         ;;
+    esac
+
+    return 0
+}
+
+function ytdl() {
 	url=$1
 	flags="${@:2}"
 	youtube-dl $url --cookies ~/Downloads/cookies.txt $flags
 }
-
 
 function metasploitswitch() {
 	if [ -z "$1" ]
@@ -34,12 +54,26 @@ function mysqlswitch() {
 }
 
 function files() {
-	if [ -z "$1" ]
-	then
-		xdg-open . > /dev/null 2>&1 &
-	else
-		xdg-open $1 > /dev/null 2>&1 &
-	fi
+    machine="$( getMachineType )"
+    case ${machine} in 
+        $MACHINE_TYPE_MAC)
+            command='open'
+            ;;
+
+        $MACHINE_TYPE_LINUX)
+            command='xdg-open'
+            ;;
+        *)
+            command=''
+            ;;
+    esac
+
+    if [ -z "$1" ]
+    then
+    	eval "${command} . " > /dev/null 2>&1 &
+    else
+    	eval "${command} $1" > /dev/null 2>&1 &
+    fi
 }
 
 function aptEverything() {
