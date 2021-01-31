@@ -12,6 +12,9 @@ function phdl() {
 	youtube-dl $url --cookies ~/Downloads/cookies.txt $flags
 }
 
+function pip-install-save() {
+    pip install $1 && pip freeze | grep $1 >> requirements.txt
+}
 
 function metasploitswitch() {
 	if [ -z "$1" ]
