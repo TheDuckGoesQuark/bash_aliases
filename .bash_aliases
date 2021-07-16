@@ -3,6 +3,7 @@ alias python='python3';
 alias latexmk='latexmk -pdf -pvc';
 alias copy_template='cp -r ~/Templates/report .';
 alias stfuintellij='ibus-daemon -rd';
+alias ll='ls -l -a';
 
 MACHINE_TYPE_MAC='MacOS';
 MACHINE_TYPE_LINUX='Linux';
@@ -33,7 +34,7 @@ function ytdl() {
 	youtube-dl $url --cookies ~/Downloads/cookies.txt $flags
 }
 
-function pip-install-save() {
+function pipInstallSave() {
     pip install $1 && pip freeze | grep $1 >> requirements.txt
 }
 
